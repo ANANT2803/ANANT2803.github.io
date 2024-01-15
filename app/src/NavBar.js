@@ -39,9 +39,9 @@ const NavBar = () => {
                     <div className={`dropdown-menu ${open? 'active' : 'inactive'}`}>
                         {/* <h3>Username<br/><span>IIT V</span></h3> */}
                         <ul>
-                            <DropdownItem condition={ isLogin[0] } beforeLogin={"Login"} beforeUrl={"/login"} afterLogin={"Profile"} afterUrl={"/profile"} />
-                            <DropdownItem condition={ isLogin[0] } beforeLogin={"Register"} beforeUrl={"/register"} afterLogin={"Log Out"} afterUrl={"/"} />
-                        </ul>
+                            <li>{ isLogin[0] ? <Link to='/profile'>Profile</Link> : <Link to='/login'>Login</Link> }</li>
+                            <li>{ isLogin[0] ? <span onClick={logOut}><Link to='/'>Log Out</Link></span> : <Link to='/register'>Register</Link> }</li>
+                       </ul>
                     </div>
                 </div>
                 <ul>
@@ -59,13 +59,13 @@ const NavBar = () => {
     );
 };
 
-function DropdownItem(props){
-    return(
-      <li className = 'dropdownItem'>
-        { props.condition ? <Link to={ props.afterUrl }>{ props.afterLogin }</Link> : <Link to={ props.beforeUrl }>{ props.beforeLogin }</Link> }
-        </li>
-    )
-  }
+// function DropdownItem(props){
+//     return(
+//       <li className = 'dropdownItem'>
+//         { props.condition ? <Link to={ props.afterUrl }>{ props.afterLogin }</Link> : <Link to={ props.beforeUrl }>{ props.beforeLogin }</Link> }
+//         </li>
+//     )
+//   }
   
 
 export default NavBar;
