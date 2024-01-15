@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import Logo from './logo512.png';
 import { LoginContext } from './LoginContext';
 import profile from './profile.png';
-import style from "./navbar.module.css";
+// import style from "./navbar.module.css";
 
 const NavBar = () => {
     const [ isLogin, setIsLogin ] = useContext(LoginContext)
@@ -36,11 +36,11 @@ const NavBar = () => {
                         <img src={profile} alt='Pic here!'></img>
                     </div>
 
-                    <div className={`dropdown-menu' ${open? 'active' : 'inactive'}`}>
-                        <h3>Username<br/><span>IIT V</span></h3>
+                    <div className={`dropdown-menu ${open? 'active' : 'inactive'}`}>
+                        {/* <h3>Username<br/><span>IIT V</span></h3> */}
                         <ul>
-                            <DropdownItem img={profile} text={"Login"} />
-                            <DropdownItem img={profile} text={"Register"} />
+                            <DropdownItem condition={ isLogin[0] } beforeLogin={"Login"} beforeUrl={"/login"} afterLogin={"Profile"} afterUrl={"/profile"} />
+                            <DropdownItem condition={ isLogin[0] } beforeLogin={"Register"} beforeUrl={"/register"} afterLogin={"Log Out"} afterUrl={"/"} />
                         </ul>
                     </div>
                 </div>
@@ -49,8 +49,7 @@ const NavBar = () => {
                     { tabs.map(tab => (
                         <li key={ tab.name }>{ tab.condition ? <Link to={ tab.url }>{ tab.name }</Link> : isLogin[0] ? ( <Link to={ tab.url }>{ tab.name }</Link> ) : ( <span onClick={ () => alert(`Please log in to view ${tab.name}.`) } style={ { cursor: 'pointer' } }>{ tab.name }</span> ) }</li>
                     ))}
-                    <li>{ isLogin[0] ? <Link to='/profile'>Profile</Link> : <Link to='/login'>Login</Link> }</li>
-                    <li>{ isLogin[0] ? <span onClick={logOut}><Link to='/'>Log Out</Link></span> : <Link to='/register'>Register</Link> }</li>
+
                 </ul>
             </div>
             <div>
@@ -60,13 +59,13 @@ const NavBar = () => {
     );
 };
 
-function DropdownItem (props) {
-    return (
-        <li className='dropdownItem'>
-            <img alt='h'>{props.image}</img>
-            <a href='/'> {props.text} </a>
+function DropdownItem(props){
+    return(
+      <li className = 'dropdownItem'>
+        { props.condition ? <Link to={ props.afterUrl }>{ props.afterLogin }</Link> : <Link to={ props.beforeUrl }>{ props.beforeLogin }</Link> }
         </li>
     )
-}
+  }
+  
 
 export default NavBar;
