@@ -13,7 +13,7 @@ code {
 }
 
 :root {
-  --primary-bg: #242526;
+  /* --primary-bg: #242526; */
   --secondary-bg: #fff;
   --primary-text-color: #555;
   --secondary-text-color: #cecece;
@@ -115,7 +115,7 @@ h3 span{
 }
 
 .dropdown-menu ul li:hover a{
-  color: rgb(212, 33, 9);
+  color: rgb(0, 0, 0);
   cursor: pointer;
 }
 

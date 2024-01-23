@@ -36,11 +36,10 @@ const NavBar = () => {
                         <img src={profile} alt='Pic here!'></img>
                     </div>
 
-                    <div className={`dropdown-menu ${open? 'active' : 'inactive'}`}>
-                        {/* <h3>Username<br/><span>IIT V</span></h3> */}
+                    <div className={`dropdown-menu ${open? 'active' : 'inactive'}` }>
                         <ul>
-                            <li>{ isLogin[0] ? <Link to='/profile'>Profile</Link> : <Link to='/login'>Login</Link> }</li>
-                            <li>{ isLogin[0] ? <span onClick={logOut}><Link to='/'>Log Out</Link></span> : <Link to='/register'>Register</Link> }</li>
+                            <li>{ isLogin[0] ? <Link to='/profile' onClick={() => {setOpen(!open)}}>Profile</Link> : <Link to='/login' onClick={() => {setOpen(!open)}}>Login</Link> }</li>
+                            <li>{ isLogin[0] ? <span onClick={logOut}><Link to='/' onClick={() => {setOpen(!open)}}>Log Out</Link></span> : <Link to='/register' onClick={() => {setOpen(!open)}}>Register</Link> }</li>
                        </ul>
                     </div>
                 </div>

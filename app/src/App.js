@@ -2,6 +2,7 @@ import React from 'react';
 import './App.css';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import { LoginValue } from './LoginContext';
+import { UserValue } from './usercontext.js';
 
 import NavBar from './NavBar.js'
 import Home from './Home';
@@ -27,11 +28,15 @@ const App = () => {
             <Route exact path = '/media' element = { <Media /> } />
             <Route exact path = '/gallery' element = { <Gallery /> } />
             <Route exact path = '/services' element = { <Services /> } />
-            <Route exact path = '/login' element = { <Login /> } />
-            <Route exact path = '/register' element = { <Register /> } />
-            <Route exact path = '/profile' element = { <Profile /> } />
             <Route exact path = '/contact' element = { <Contact /> } />
           </Routes>
+          <UserValue>
+            <Routes>
+                <Route exact path = '/login' element = { <Login /> } />
+                <Route exact path = '/register' element = { <Register /> } />
+                <Route exact path = '/profile' element = { <Profile /> } />
+            </Routes>
+          </UserValue>
         </div>
       </Router>
     </LoginValue>
