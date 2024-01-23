@@ -9,14 +9,6 @@ const NavBar = () => {
     const [ isLogin, setIsLogin ] = useContext(LoginContext)
     const [open, setOpen] = useState(false);
 
-    const username = () => {
-        if (isLogin[0] !== false) {
-            return (
-                <h3>{ isLogin[1] }</h3>
-            );
-        }
-    };
-    
 
     const logOut = () => {
         setIsLogin([ 0, '' ]);
@@ -50,9 +42,6 @@ const NavBar = () => {
                     ))}
 
                 </ul>
-            </div>
-            <div>
-                { username() }
             </div>
         </div>
     );
