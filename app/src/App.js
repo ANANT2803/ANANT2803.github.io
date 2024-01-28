@@ -13,7 +13,7 @@ import Media from './Media';
 import Gallery from './Gallery';
 import Services from './Services';
 import Contact from './Contact';
-import Profile from './Profile';
+import Profile from './profile';
 
 const App = () => {
 
