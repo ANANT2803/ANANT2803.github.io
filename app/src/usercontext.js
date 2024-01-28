@@ -8,8 +8,8 @@ export const UserValue = (props) => {
                                         year: null,
                                         email: null,
                                         phone: null,
-                                        password: null,
-                                        role: null })
+                                        role: null,
+                                        password: null })
 
     return (
         <UserContext.Provider value={[ user, setUser ]}>

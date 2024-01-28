@@ -1,6 +1,6 @@
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
-  -webkit-appearance:none;
+  -webkit-appearance: none;
 }
 .App {
   text-align: center;
@@ -42,6 +42,7 @@ input::-webkit-inner-spin-button {
 }
 
 .NavBar {
+  position: relative;
   display: flex;
   align-items: center;
   padding: 15px 15px;
@@ -204,4 +205,48 @@ h3 span{
   max-width: 100px;
   margin-left: 10px;
   transition: var(--speed);
+}
+.profile {
+  color: var(--secondary-bg);
+  text-align: center;
+}
+.heading{
+  font-size: x-large;
+  color: var(--secondary-bg);
+}
+.Details{
+  text-align: center;
+  padding-left: 720px;
+  padding-top: 30px;
+}
+.profile label{
+  display: flex;
+  font-size: 130%;
+  margin-top: 14px;
+}
+.profile input{
+  display: flex;
+  font-size: 100%;
+}
+/* #branch{
+  /* display: flex; */
+  /* padding: 1px;
+}  */
+/* .Details .brye{
+  display: flex;
+  padding: 10px;
+  margin-top: 10px;
+  font-size: small;
+} */
+.button{
+  display: flex;
+  margin-left: 780px;
+  margin-top: 12px;
+  font-size: 97%;
+}
+.save{
+  display: flex;
+  margin-left: 780px;
+  margin-top: 12px;
+  font-size: 94%;
 }

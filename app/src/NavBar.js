@@ -3,12 +3,10 @@ import { Link } from 'react-router-dom';
 import Logo from './logo512.png';
 import { LoginContext } from './LoginContext';
 import profile from './profile.png';
-// import style from "./navbar.module.css";
 
 const NavBar = () => {
-    const [ isLogin, setIsLogin ] = useContext(LoginContext)
-    const [open, setOpen] = useState(false);
-
+    const [ isLogin, setIsLogin ] = useContext(LoginContext);
+    const [ open, setOpen ] = useState(false);
 
     const logOut = () => {
         setIsLogin([ 0, '' ]);
@@ -40,20 +38,10 @@ const NavBar = () => {
                     { tabs.map(tab => (
                         <li key={ tab.name }>{ tab.condition ? <Link to={ tab.url }>{ tab.name }</Link> : isLogin[0] ? ( <Link to={ tab.url }>{ tab.name }</Link> ) : ( <span onClick={ () => alert(`Please log in to view ${tab.name}.`) } style={ { cursor: 'pointer' } }>{ tab.name }</span> ) }</li>
                     ))}
-
                 </ul>
             </div>
         </div>
     );
 };
-
-// function DropdownItem(props){
-//     return(
-//       <li className = 'dropdownItem'>
-//         { props.condition ? <Link to={ props.afterUrl }>{ props.afterLogin }</Link> : <Link to={ props.beforeUrl }>{ props.beforeLogin }</Link> }
-//         </li>
-//     )
-//   }
-  
 
 export default NavBar;

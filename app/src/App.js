@@ -2,9 +2,9 @@ import React from 'react';
 import './App.css';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import { LoginValue } from './LoginContext';
-import { UserValue } from './usercontext.js';
+import { UserValue } from './usercontext';
 
-import NavBar from './NavBar.js'
+import NavBar from './NavBar'
 import Home from './Home';
 import Login from './Login';
 import Register from './Register';
@@ -12,8 +12,8 @@ import Initiatives from './Initiatives';
 import Media from './Media';
 import Gallery from './Gallery';
 import Services from './Services';
-import Contact from './Contact.js';
-import Profile from './profile.js';
+import Contact from './Contact';
+import Profile from './Profile';
 
 const App = () => {
 

@@ -10,12 +10,12 @@ const Register = (props) => {
     const [ isLogin, setIsLogin ] = useContext(LoginContext);
     const [ user, setUser ] = useContext(UserContext);
 
-    const [ name, setName ] = useState("");
-    const [ email, setEmail ] =useState("");
-    const [ phone, setPhone ] = useState("");
-    const [ branch, setBranch ] = useState("");
-    const [ year, setYear ] = useState("");
-    const [ password, setPassword ] = useState("");
+    const [ name, setName ] = useState(null);
+    const [ email, setEmail ] =useState(null);
+    const [ phone, setPhone ] = useState(null);
+    const [ branch, setBranch ] = useState(null);
+    const [ year, setYear ] = useState(null);
+    const [ password, setPassword ] = useState(null);
     const [ role, setRole ] = useState("");
 
     const handleSubmit = (e) => {
@@ -29,7 +29,6 @@ const Register = (props) => {
                 phone: phone,
                 role: role,
                 password: password });
-
         setIsLogin([ true, email ]);
         navigate('/');
     };
@@ -64,7 +63,8 @@ const Register = (props) => {
                 </div>
                 <div className={style.userbox} >  
                     <label htmlFor="role">Who are you?</label>
-                    <select name="role" id="role" onChange={(e) => setRole(e.target.value)}>
+                    <select name="role" id="role" onChange={(e) => setRole(e.target.value)} value={role} required>
+                        <option value="" disabled>Select a role</option>
                         <option value="Student">Student</option>
                         <option value="Alumni">Alumni</option>
                     </select>

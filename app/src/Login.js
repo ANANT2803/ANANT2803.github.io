@@ -8,9 +8,9 @@ const Login = (props) => {
 
     const navigate = useNavigate();
 
-    const [email, setEmail] = useState('');
-    const [password, setPassword] = useState('');
-    const [ role, setRole ] = useState('');
+    const [email, setEmail] = useState(null);
+    const [password, setPassword] = useState(null);
+    const [ role, setRole ] = useState("")
 
     const [isLogin, setIsLogin] = useContext(LoginContext);
     const [ user, setUser ] = useContext(UserContext);
@@ -18,12 +18,14 @@ const Login = (props) => {
     const handleSubmit = (e) => {
         e.preventDefault();
         console.log("Email= ", email);
-        console.log("Pass= ", password);
-        setUser({
-            email: email,
-            password: password,
-            role: role
-        });
+        console.log("Password= ", password);
+        setUser({ name: null,
+                branch: null,
+                year: null,
+                email: email,
+                phone: null,
+                role: role,
+                password: password });
         setIsLogin([ true, email ]);
         navigate('/');
         // fetch the user, email and pw must match, other err; if proper cred --> logged in user!
@@ -36,16 +38,17 @@ const Login = (props) => {
                 <h2>Login</h2>
                 <form onSubmit={handleSubmit}>
                     <div className={style.userbox}>
-                        <input name="email" id='email' value={email} onChange={(e) => setEmail(e.target.value)} type="email" required="" autoComplete="off" />
                         <label htmlFor='email'>Email </label>
+                        <input name="email" id='email' value={email} onChange={(e) => setEmail(e.target.value)} type="email" required autoComplete="off" />
                     </div>
                     <div className={style.userbox}>
-                        <input name="password" id='password' value={password} onChange={(e) => setPassword(e.target.value)} type="password" required="" autoComplete="off" />
                         <label htmlFor='password'>Password</label>
+                        <input name="password" id='password' value={password} onChange={(e) => setPassword(e.target.value)} type="password" required autoComplete="off" />
                     </div>
-                    <div className={style.userbox}>
+                    <div className={style.userbox} >  
                         <label htmlFor="role">Who are you?</label>
-                        <select name="role" id="role" onChange={(e) => setRole(e.target.value)} required>
+                        <select name="role" id="role" onChange={(e) => setRole(e.target.value)} value={role} required>
+                            <option value="" disabled>Select a role</option>
                             <option value="Student">Student</option>
                             <option value="Alumni">Alumni</option>
                         </select>
